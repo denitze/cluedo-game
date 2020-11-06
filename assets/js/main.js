@@ -111,24 +111,32 @@ console.log(weapons.length);
 
 // Funktion selectedRandom --> Zufallsprinzip ein Element aus einem "Kartenstapel"(Array) auszuwählen.
 // Die Funktion soll ein Array als Argument erwarten und ein zufälliges Element aus dem Array zurückgeben
-function selectRandom(arr) {
-    return Math.floor(Math.random() * arr.length);  
-}
+// function selectRandom(arr) {
+//     return Math.floor(Math.random() * arr.length);  
+// }
 
+// // 3. Function pickMystery
+// function pickMystery() {
+//      return {suspect: suspectsArray[selectRandom(suspectsArray)],
+//             weapons: weapons[selectRandom(weapons)], 
+//             room: rooms[selectRandom(rooms)]};
+// }
 
-// 3. Function pickMystery
-function pickMystery() {
-     return {suspect: suspectsArray[selectRandom(suspectsArray)],
-            weapons: weapons[selectRandom(weapons)], 
-            room: rooms[selectRandom(rooms)]};
-}
-
-let reveal= pickMystery();
-
+// let reveal= pickMystery();
 // 4. Reveal the mystery
 // function revealMystery
 // -> einziges Argument ein Objekt 
 function revealMystery() {
+    function selectRandom(arr) {
+        return Math.floor(Math.random() * arr.length);  
+    }
+    function pickMystery() {
+        return {suspect: suspectsArray[selectRandom(suspectsArray)],
+               weapons: weapons[selectRandom(weapons)], 
+               room: rooms[selectRandom(rooms)]};
+   }
+   let reveal= pickMystery();
+
     document.getElementById("res").innerHTML = `<img src="${reveal.suspect.image}" alt="killer img"><h2>${reveal.suspect.firstName}  ${reveal.suspect.lastName} killed Mr. Boddy using the ${reveal.weapons.name} in the ${reveal.room} </h2> `
 }
 
